@@ -141,7 +141,7 @@ def _target_f0_to_beta(x, pitch_mark, source_f0, target_f0):
     """
     beta = np.zeros(pitch_mark.size)
     for i in range(beta.size):
-        idx = round(pitch_mark[i] * source_f0.size / x.size)
+        idx = int(round(pitch_mark[i] * source_f0.size / x.size))
         if idx < 0:
             idx = 0
         elif idx >= source_f0.size:
