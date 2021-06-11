@@ -184,11 +184,7 @@ def _find_pitch_marks(x, sr, f0, hop_size, win_size):
     m = np.array([0])  # vector of pitch mark positions
 
     # set pitch periods of unvoiced frames
-    if f0[0] == 0:
-        f0[0] = 120
-    for i in range(f0.size):
-        if f0[i] == 0:
-            f0[i] = f0[i - 1]
+    f0[f0 == 0] = 123.4567
 
     p0 = np.round(sr / f0)
     search_up_lim = int(p0[0])
